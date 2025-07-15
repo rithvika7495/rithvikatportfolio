@@ -1,0 +1,1458 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rithvika T | Portfolio</title>
+    <meta name="color-scheme" content="light dark">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #ffffff;
+            --secondary-color: #00003E;
+            --accent-color: #00003E;
+            --text-color: #22223b;
+            --soft-text: #4a4e69;
+            --border-color: #e0e0e0;
+            --section-bg: #f4f6fc;
+            --section-bg-alt: #e8eaf6;
+            --icon-hover: #22223b;
+            --footer-color: #00003E;
+            --project-img-h: 230px;
+            --modal-bg: #fff;
+            --modal-text: #22223b;
+            --modal-border: #00003E;
+            --modal-scrollbar-thumb: #e0e0e0;
+            --modal-scrollbar-thumb-hover: #bdbdbd;
+            --modal-scrollbar-track: #f4f6fc;
+            --main-scrollbar-thumb: #e0e0e0;
+            --main-scrollbar-thumb-hover: #bdbdbd;
+            --main-scrollbar-track: #f4f6fc;
+            /* Dark Theme */
+            --primary-color-dark: #0a192f;
+            --secondary-color-dark: #1DE9B6;
+            --accent-color-dark: #1DE9B6;
+            --text-color-dark: #e0f7fa;
+            --soft-text-dark: #b2dfdb;
+            --border-color-dark: #263445;
+            --section-bg-dark: #172a3a;
+            --section-bg-alt-dark: #101a22;
+            --icon-hover-dark: #fff;
+            --footer-color-dark: #1DE9B6;
+            --modal-bg-dark: #101a22;
+            --modal-text-dark: #e0f7fa;
+            --modal-border-dark: #1DE9B6;
+            --modal-scrollbar-thumb-dark: #263445;
+            --modal-scrollbar-thumb-hover-dark: #1DE9B6;
+            --modal-scrollbar-track-dark: #172a3a;
+            --main-scrollbar-thumb-dark: #263445;
+            --main-scrollbar-thumb-hover-dark: #1DE9B6;
+            --main-scrollbar-track-dark: #172a3a;
+        }
+        html[data-theme="light"] {
+            --primary-color: #ffffffbf;
+            --secondary-color: #00003E;
+            --accent-color: #00003E;
+            --text-color: #22223b;
+            --soft-text: #4a4e69;
+            --border-color: #e0e0e0;
+            --section-bg: #f4f6fc;
+            --section-bg-alt: #e8eaf6;
+            --icon-hover: #22223b;
+            --footer-color: #00003E;
+            --modal-bg: #fff;
+            --modal-text: #22223b;
+            --modal-border: #00003E;
+            --modal-scrollbar-thumb: #e0e0e0;
+            --modal-scrollbar-thumb-hover: #bdbdbd;
+            --modal-scrollbar-track: #f4f6fc;
+            --main-scrollbar-thumb: #e0e0e0;
+            --main-scrollbar-thumb-hover: #bdbdbd;
+            --main-scrollbar-track: #f4f6fc;
+        }
+        html[data-theme="dark"] {
+            --primary-color: #0a192f;
+            --secondary-color: #1DE9B6;
+            --accent-color: #1DE9B6;
+            --text-color: #e0f7fa;
+            --soft-text: #b2dfdb;
+            --border-color: #263445;
+            --section-bg: #172a3a;
+            --section-bg-alt: #101a22;
+            --icon-hover: #fff;
+            --footer-color: #1DE9B6;
+            --modal-bg: #101a22;
+            --modal-text: #e0f7fa;
+            --modal-border: #1DE9B6;
+            --modal-scrollbar-thumb: #263445;
+            --modal-scrollbar-thumb-hover: #1DE9B6;
+            --modal-scrollbar-track: #172a3a;
+            --main-scrollbar-thumb: #263445;
+            --main-scrollbar-thumb-hover: #1DE9B6;
+            --main-scrollbar-track: #172a3a;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'SF Mono', 'Fira Code', monospace; }
+        body { background-color: var(--primary-color); color: var(--text-color); line-height: 1.6; overflow-x: hidden; transition: background 0.3s, color 0.3s; }
+        a { color: var(--secondary-color); text-decoration: none; transition: all 0.3s ease; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        header { position: fixed; top: 0; width: 100%; background-color: var(--primary-color); z-index: 1000; padding: 20px 0; box-shadow: 0 2px 8px rgba(0,0,62,0.05); transition: background 0.3s; }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.8rem; font-weight: 700; color: var(--secondary-color); }
+        .nav-right { display: flex; align-items: center; gap: 30px; }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { color: var(--secondary-color); font-size: 0.95rem; position: relative; }
+        .nav-links a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background-color: var(--secondary-color); transition: width 0.3s ease; }
+        .nav-links a:hover::after { width: 100%; }
+        .theme-toggle { background: none; border: none; cursor: pointer; margin-left: 20px; font-size: 1.7rem; color: var(--secondary-color); transition: color 0.3s; display: flex; align-items: center; }
+        .theme-toggle:focus { outline: none; }
+        .hamburger { display: none; cursor: pointer; }
+        .hero { min-height: 100vh; display: flex; align-items: center; padding-top: 120px; background: var(--section-bg); transition: background 0.3s; }
+        .hero-inner { display: flex; align-items: flex-start; gap: 48px; width: 100%; margin-left: 0; }
+        .profile-circle { width: 134px; height: 134px; border-radius: 50%; overflow: hidden; border: 4px solid var(--secondary-color); box-shadow: 0 4px 24px rgba(0,0,62,0.08); background: #f8f8ff; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: border-color 0.3s, width 0.3s, height 0.3s; }
+        html[data-theme="dark"] .profile-circle { background: #102030; border-color: var(--secondary-color); }
+        .profile-circle img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .hero-content { display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-start; flex: 1; min-width: 0; }
+        .hero-content h1, .hero-content h2 { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 20px; color: var(--secondary-color); font-weight: 700; line-height: 1.1; word-break: break-word; }
+        .hero-content h2 { margin-top: 0; }
+        .hero-content h1 { display: none; }
+        .hero-content h2 { display: block; }
+        .hero-content h3 { font-size: clamp(1.5rem, 3vw, 2.5rem); color: var(--soft-text); margin-bottom: 30px; font-weight: 400; }
+        .hero-flex-row { display: flex; align-items: flex-start; width: 100%; gap: 32px; margin-bottom: 32px; flex-wrap: wrap; }
+        .hero-wide-paragraph { flex: 1 1 250px; color: var(--soft-text); max-width: none; min-width: 200px; margin-bottom: 0; }
+        .hero-row { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; flex-shrink: 0; }
+        .hero-buttons { display: flex; gap: 16px; }
+        .cta-button { display: inline-block; padding: 15px 30px; border: 1.5px solid var(--secondary-color); color: var(--secondary-color); border-radius: 4px; font-size: 0.98rem; background: transparent; cursor: pointer; font-weight: 600; transition: all 0.3s; }
+        .cta-button:hover { background-color: var(--secondary-color); color: var(--primary-color); }
+        .hero-social { display: flex; gap: 18px; align-items: center; margin-left: 16px; }
+        .hero-social a { color: var(--secondary-color); font-size: 1.7rem; display: flex; align-items: center; transition: color 0.2s; }
+        .hero-social a:hover { color: var(--icon-hover); }
+        .hero-x { width: 1.7rem; height: 1.7rem; display: flex; align-items: center; color: var(--secondary-color); transition: color 0.2s; }
+        .hero-x svg { display: block; width: 1.7rem; height: 1.7rem; }
+        .hero-x:hover { color: var(--icon-hover); }
+        .hero-contact { display: flex; align-items: center; gap: 16px; margin-left: 18px; font-size: 1.1rem; color: var(--secondary-color); font-weight: 600; white-space: nowrap; }
+        .hero-contact .hero-phone, .hero-contact .hero-email { display: flex; align-items: center; gap: 6px; }
+        .hero-contact i { font-size: 1.15rem; }
+        .about-section { background: var(--section-bg-alt); }
+        .about-content { display: flex; flex-direction: column; max-width: 100%; gap: 0; }
+        .about-wide { width: 100%; max-width: 100%; margin: 0 auto; }
+        .about-text { width: 100%; max-width: 100%; margin-bottom: 36px; }
+        .about-text p { color: var(--soft-text); margin-bottom: 20px; width: 100%; max-width: 100%; }
+        .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px 40px; width: 100%; max-width: 100%; margin-top: 0; }
+        .skill-item { display: flex; align-items: center; gap: 10px; font-size: 1rem; }
+        .skill-item i { color: var(--secondary-color); }
+        .workexp-section { background: var(--section-bg); }
+        .workexp-table-wrap { width: 100%; overflow-x: auto; }
+        .workexp-table { width: 100%; border-collapse: collapse; background: var(--section-bg); }
+        .workexp-table th, .workexp-table td { padding: 16px 8px; text-align: left; color: var(--text-color); font-size: 1rem; }
+        .workexp-table th { font-weight: 700; color: var(--secondary-color); }
+        .workexp-table tr { background: var(--section-bg); }
+        .workexp-table th:nth-child(1), .workexp-table td:nth-child(1) { width: 20%; }
+        .workexp-table th:nth-child(2), .workexp-table td:nth-child(2) { width: 20%; }
+        .workexp-table th:nth-child(3), .workexp-table td:nth-child(3) { width: 20%; }
+        .workexp-table th:nth-child(4), .workexp-table td:nth-child(4) { width: 40%; }
+        .projects { background-color: var(--section-bg-alt); transition: background 0.3s; }
+        .section { padding: 100px 0; }
+        .section-title { font-size: 2rem; color: var(--secondary-color); margin-bottom: 0; position: relative; font-weight: 700; display: flex; align-items: center; gap: 16px; }
+        .section-title .projects-github-link { color: var(--secondary-color); font-size: 1.7rem; margin-left: 10px; display: flex; align-items: center; }
+        .section-title .projects-github-link:hover { color: var(--icon-hover); }
+        .section-divider {
+            border: none;
+            border-bottom: 2px solid var(--secondary-color);
+            width: 50px;
+            margin: 10px 0 40px 0;
+            background: none;
+            display: block;
+        }
+        .project-tabs { display: flex; gap: 20px; margin-bottom: 40px; flex-wrap: wrap; }
+        .filter-btn { background: transparent; border: 1.5px solid var(--secondary-color); color: var(--secondary-color); padding: 8px 20px; border-radius: 4px; cursor: pointer; font-weight: 600; transition: all 0.3s ease; }
+        .filter-btn.active, .filter-btn:hover { background-color: var(--secondary-color); color: var(--primary-color); }
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; }
+        .project-card { background-color: var(--primary-color); border-radius: 6px; overflow: hidden; transition: transform 0.3s ease, background 0.3s; border: 1px solid var(--border-color); position: relative; display: flex; flex-direction: column; cursor: pointer; }
+        .project-card:hover { transform: translateY(-10px); box-shadow: 0 4px 24px rgba(0,0,62,0.08); }
+        .project-img { height: calc(var(--project-img-h)); background-color: #e0e4ff; position: relative; width: 100%; }
+        html[data-theme="dark"] .project-img { background-color: #123d36; }
+        .project-info { padding: 25px; flex: 1 1 auto; display: flex; flex-direction: column; }
+        .project-title { font-size: 1.2rem; margin-bottom: 15px; color: var(--secondary-color); font-weight: 600; }
+        .project-description { color: var(--soft-text); margin-bottom: 20px; font-size: 0.97rem; }
+        .project-tech { display: flex; gap: 15px; color: var(--secondary-color); font-size: 0.9rem; margin-bottom: 10px; }
+        .project-card .project-github-link { position: absolute; bottom: 18px; right: 18px; color: var(--secondary-color); font-size: 1.6rem; z-index: 2; }
+        .project-card .project-github-link:hover { color: var(--icon-hover); }
+        .project-card .floating-window-text { display: none; }
+        .publications-list { padding: 0; margin: 0; width: 100%; }
+        .publications-list ul { list-style: none; padding: 0; margin: 0; }
+        .publications-list li { margin-bottom: 24px; color: var(--soft-text); font-size: 1rem; line-height: 1.6; width: 100%; }
+        .contact-section { background: var(--section-bg); }
+        .contact-form { max-width: 600px; margin: 0 auto; }
+        .form-group { margin-bottom: 25px; }
+        .form-group label { display: block; margin-bottom: 8px; color: var(--secondary-color); font-weight: 600; }
+        .form-control { width: 100%; padding: 15px; background-color: #f8f8ff; border: 1.5px solid var(--border-color); border-radius: 4px; color: var(--text-color); }
+        html[data-theme="dark"] .form-control { background-color: #1a2636; color: var(--text-color-dark); }
+        textarea.form-control { min-height: 150px; resize: vertical; }
+        footer { text-align: center; padding: 20px 0; color: var(--footer-color); font-size: 0.97rem; border-top: 1px solid var(--border-color); background: #f8f8ff; transition: background 0.3s, color 0.3s; }
+        html[data-theme="dark"] footer { background: #102030; color: var(--footer-color-dark); }
+        .footer-bar { display: flex; align-items: center; justify-content: center; gap: 22px; margin-bottom: 18px; flex-wrap: wrap; }
+        .footer-social { display: flex; gap: 22px; }
+        .footer-social a { color: var(--secondary-color); font-size: 1.7rem; transition: color 0.2s; display: flex; align-items: center; }
+        .footer-social a:hover { color: var(--icon-hover); }
+        .footer-x { width: 1.7rem; height: 1.7rem; display: flex; align-items: center; color: var(--secondary-color); transition: color 0.2s; }
+        .footer-x svg { display: block; width: 1.7rem; height: 1.7rem; }
+        .footer-x:hover { color: var(--icon-hover); }
+        .footer-contact { display: flex; align-items: center; gap: 16px; margin-left: 18px; font-size: 1.1rem; color: var(--secondary-color); font-weight: 600; white-space: nowrap; }
+        .footer-contact .footer-phone, .footer-contact .footer-email { display: flex; align-items: center; gap: 6px; }
+        .footer-contact i { font-size: 1.15rem; }
+        /* Custom Scrollbar for main window */
+        ::-webkit-scrollbar {
+            width: 10px;
+            background: var(--main-scrollbar-track);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--main-scrollbar-thumb);
+            border-radius: 8px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--main-scrollbar-thumb-hover);
+        }
+        html {
+            scrollbar-color: var(--main-scrollbar-thumb) var(--main-scrollbar-track);
+            scrollbar-width: thin;
+        }
+        /* Modal Styles */
+        .modal-backdrop {
+            position: fixed;
+            z-index: 2000;
+            left: 0; top: 0; width: 100vw; height: 100vh;
+            background: rgba(0,0,0,0.35);
+            display: flex; align-items: center; justify-content: center;
+            transition: opacity 0.2s;
+        }
+        .modal-window {
+            background: var(--modal-bg);
+            color: var(--modal-text);
+            border: 2.5px solid var(--modal-border);
+            border-radius: 12px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+            width: 64vw;
+            max-width: 800px;
+            min-width: 320px;
+            height: 40vw;
+            max-height: 500px;
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 1.6 / 1;
+            animation: modalIn 0.25s cubic-bezier(.32,.72,.57,1.5);
+        }
+        @keyframes modalIn {
+            from { opacity: 0; transform: scale(0.95);}
+            to   { opacity: 1; transform: scale(1);}
+        }
+        .modal-header {
+            font-size: 1.5rem;
+            font-weight: 700;
+            padding: 24px 32px 10px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--modal-border);
+        }
+        .modal-close {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--modal-border);
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0 0 0 16px;
+            transition: color 0.2s;
+        }
+        .modal-close:hover { color: #e53935; }
+        .modal-body {
+            padding: 18px 32px 18px 32px;
+            flex: 1 1 auto;
+            overflow-y: auto;
+            font-size: 1.07rem;
+            line-height: 1.7;
+        }
+        .modal-footer {
+            padding: 16px 32px 24px 32px;
+            border-top: 1px solid var(--modal-border);
+            display: flex; justify-content: flex-end;
+        }
+        .modal-footer .cta-button {
+            border-color: var(--modal-border);
+            color: var(--modal-border);
+        }
+        .modal-footer .cta-button:hover {
+            background: var(--modal-border);
+            color: var(--modal-bg);
+        }
+        /* Modal Custom Scrollbar */
+        .modal-body::-webkit-scrollbar {
+            width: 10px;
+            background: var(--modal-scrollbar-track);
+        }
+        .modal-body::-webkit-scrollbar-thumb {
+            background: var(--modal-scrollbar-thumb);
+            border-radius: 8px;
+        }
+        .modal-body::-webkit-scrollbar-thumb:hover {
+            background: var(--modal-scrollbar-thumb-hover);
+        }
+        .modal-body {
+            scrollbar-color: var(--modal-scrollbar-thumb) var(--modal-scrollbar-track);
+            scrollbar-width: thin;
+        }
+        @media (max-width: 900px) {
+            .hero-inner { gap: 24px; }
+            .profile-circle { width: 94px; height: 94px; }
+            .skills { grid-template-columns: repeat(2, 1fr); }
+            .project-img { height: 170px; }
+            .modal-window { width: 90vw; height: 56vw; max-height: 90vh; }
+        }
+        @media (max-width: 768px) {
+            .modal-window { width: 98vw; height: 61vw; min-width: 0; }
+        }
+        @media (max-width: 480px) {
+            .projects-grid { grid-template-columns: 1fr; }
+            .skills { grid-template-columns: 1fr; }
+            .profile-circle { width: 65px; height: 65px; }
+            .section { padding: 60px 0; }
+            .project-img { height: 90px; }
+            .modal-window { width: 99vw; height: 62vw; min-width: 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Rithvika T</div>
+                <div class="nav-right">
+                    <div class="nav-links">
+                        <a href="#home">Home</a>
+                        <a href="#about">About</a>
+                        <a href="#workexp">Work Experience</a>
+                        <a href="#projects">My Projects</a>
+                        <a href="#contact">Contact</a>
+                    </div>
+                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light/dark mode">
+                        <i class="fas fa-moon" id="theme-icon"></i>
+                    </button>
+                    <div class="hamburger">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-inner">
+                <div class="profile-circle">
+                    <img src="your-photo.jpg" alt="Your profile photo">
+                </div>
+                <div class="hero-content">
+                    <h2>Hi, I'm Rithvika Tiruveedhula</h2>
+                    <h3>AI/ML Developer | GenAI Enthusiast</h3>
+                    <div class="hero-flex-row">
+                        <p class="hero-wide-paragraph">
+                            Final-Year Student pursuing B.Tech in Computer Science and Engineering at Vellore Institute of Technology (VIT), Chennai. Proficient in AI/ML, Deep Learning, and real-world Application Development through hands-on experience.
+                        </p>
+                        <div class="hero-row">
+                            <div class="hero-buttons">
+                                <a href="#about" class="cta-button">About Me</a>
+                                <a href="CV-RithvikaT.pdf" class="cta-button" target="_blank" rel="noopener">My CV</a>
+                            </div>
+                            <div class="hero-social">
+                                <a href="https://github.com/rithvika7495" title="GitHub" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                                <a href="https://in.linkedin.com/in/rithvikat" title="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+                                <!-- <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a> -->
+                                <!-- X icon SVG, same size as others -->
+                                <a href="https://x.com/rithvikat7495" class="hero-x" title="X" target="_blank" rel="noopener">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
+                                        <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+                                    </svg>
+                                </a>
+                            </div>
+                            <div class="hero-contact">
+                                <span class="hero-phone">
+                                    <i class="fas fa-phone"></i>
+                                    <span>+91-9538232897</span>
+                                </span>
+                                <span class="hero-email">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>rithvika.tiruvee@gmail.com</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about-section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <hr class="section-divider">
+            <div class="about-content about-wide">
+                <div class="about-text">
+                    <p>Hi! I'm Rithvika T, a Passionate AI/ML Developer and Final-Year Computer Science Student at VIT Chennai. I worked in Deep Learning, Computer Vision, building Intelligent and Real-World AI Systems.</p>
+                    <p>With hands-on experience in Healthcare Diagnostics, Fine-Grained Image Similarity, and Generative AI Models, i enjoy turning data into impactful solutions. My work bridges academic Research and Industry-Driven Development, with a strong focus on Model Explainability, Accuracy, and Scalability.</p>
+                    <p>I believe in using  AI to solve meaningful problems from improving Medical Diagnostics to Optimizing Retail Analytics and thrive in Collaborative Environments where Innovation Meets Execution.</p>
+                </div>
+                <div class="skills">
+                    <div class="skill-item"><i class="fas fa-check"></i><span>Python</span></div>
+                    <div class="skill-item"><i class="fas fa-check"></i><span>PyTorch</span></div>
+                    <div class="skill-item"><i class="fas fa-check"></i><span>TensorFlow/Keras</span></div>
+                    <div class="skill-item"><i class="fas fa-check"></i><span>Computer Vision(OpenCV,CNNs)</span></div>
+                    <div class="skill-item"><i class="fas fa-check"></i><span>NLP & Transformers (nltk,SpaCy, Hugging Face)</span></div>
+                    <div class="skill-item"><i class="fas fa-check"></i><span>Scikit-Learn</span></div>
+                    <div class="skill-item"><i class="fas fa-check"></i><span>Flask (for deploying ML models)</span></div>
+                    <div class="skill-item"><i class="fas fa-check"></i><span>Transfer Learning</span></div>
+                    <div class="skill-item"><i class="fas fa-check"></i><span>Model Explainability & Interpretability</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Experience Section -->
+    <section id="workexp" class="section workexp-section">
+        <div class="container">
+            <h2 class="section-title">Industry Work Experience & Capstone Projects</h2>
+            <hr class="section-divider">
+            <h2 style="margin-top: 40px;"><i>Work Experience:</i></h2>
+            <div class="workexp-table-wrap">
+                <table class="workexp-table">
+                    <thead>
+                        <tr>
+                            <th>Time Period</th>
+                            <th>Company</th>
+                            <th>Role</th>
+                            <th>Experience</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>31st Dec, 2024 - Present</td>
+                            <td>Tata Consultancy Services</td>
+                            <td>AI/ML Intern</td>
+                            <td>
+                                <ul>
+                                    <li>Designed a <b>hybrid deep learning model (ResNet50 + Attention Mechanism + Attention Erasure)</b> improving apparel match <b>precision by 20%</b> and <b>retrieval accuracy to 90%</b>.</li>
+                                    <li>Automated similarity detection on <b>32K+ images</b>, reducing manual review by <b>30–40%</b> using <b>L2-normalized embeddings</b> and <b>augmentation techniques</b>.</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                        <tr>
+                            <td>Nov, 2023 - Jan, 2024</td>
+                            <td>Iota Analytics Pvt Ltd</td>
+                            <td>Summer Intern (AI/ML/NLP)</td>
+                            <td>
+                                <ul>
+                                    <li>
+                                      Built a <strong>PII recognizer</strong> using <strong>Named Entity Recognition (NER)</strong> and <strong>Regex</strong>, 
+                                      achieving <strong>98% precision</strong>, and integrated <strong>Retrieval-Augmented Generation (RAG)</strong> with 
+                                      <strong>Hugging Face LLMs</strong> for <strong>domain-specific question answering</strong>.
+                                    </li>
+                                    <li>
+                                      Deployed a <strong>privacy-preserving NLP pipeline</strong> via <strong>Flask APIs</strong>, 
+                                      reducing <strong>compliance workload by ~60%</strong> and <strong>boosting LLM output quality by 35%</strong>.
+                                    </li>
+                                  </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Jun, 2023 - Aug, 2023</td>
+                            <td>Chakralaya Analytics</td>
+                            <td>Intern</td>
+                            <td>
+                                <ul>
+                                    <li>Contributed to a <b>real-time Business Intelligence system</b> for procurement and strategic planning.</li>
+                                    <li>Created <b></b>dashboards</b> and <b>KPIs</b> for actionable insights used by <b>CEOs</b> and <b>buyers</b>.</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Academic/Capstone Projects Table (still part of Work Experience section) -->
+            <h2 style="margin-top: 40px;"><i>Capstone Projects:</i></h2>
+            <div class="workexp-table-wrap">
+            <table class="workexp-table">
+                <thead>
+                <tr>
+                    <th>Time Period</th>
+                    <th>Project Title</th>
+                    <th>Role</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>15th Dec 2024 – 2nd April 2025</td>
+                    <td>ChestVision-Lung Disease Classification using Ensemble Transfer Learning & Grad-CAM for Visualization</td>
+                    <td><em>Student</em></td>
+                    <td>
+                    <ul>
+                        <li>Built an <strong>ensemble of 5 CNN models</strong> achieving <strong>89.7% accuracy</strong> and <strong>79.1% AUC-ROC</strong>.</li>
+                        <li>Enhanced model interpretability using <strong>Grad-CAM</strong> on <strong>112K+ X-rays</strong>, boosting <strong>recall by 14%</strong>.</li>
+                    </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>20th Jul – 20th Nov, 2024</td>
+                    <td>Ship Detection using SAR (Synthetic Aperture Radar) Images for Maritime Vigilance</td>
+                    <td><em>Student</em></td>
+                    <td>
+                    <ul>
+                        <li>Outperformed Faster R-CNN & SSD with <strong>+13.7% F1-score</strong> using a <strong>SAR-optimized detection pipeline</strong>.</li>
+                        <li>Improved small vessel detection by <strong>28%</strong> with <strong>custom activations</strong> and <strong>PSO</strong>.</li>
+                    </ul>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            </div>
+            
+        </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section id="projects" class="section projects">
+        <div class="container">
+            <h2 class="section-title">
+                My Projects
+                <a href="https://github.com/rithvika7495" target="_blank" rel="noopener" class="projects-github-link" title="GitHub Homepage">
+                    <i class="fab fa-github"></i>
+                </a>
+            </h2>
+            <hr class="section-divider">
+            <div class="project-tabs">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="work_at_tcs">Industry Internship @TCS</button>
+                <button class="filter-btn" data-filter="capstone_projects">Capstone Projects</button>
+                <button class="filter-btn" data-filter="summer_internships">Summer Internships</button>
+                <button class="filter-btn" data-filter="coursework_projects">Coursework Projects</button>
+                <button class="filter-btn" data-filter="publications">Publications</button>
+            </div>
+			
+            <div class="projects-grid" id="projects-grid">
+            <!-- Project Card 3 -->
+            <div class="project-card" data-category="work_at_tcs all" data-modal-id="modal-3">
+                <div class="project-img">
+                    <img src="TCSOptumera-Fine Grained.jpg" alt="Description of your project image">
+                </div>
+                    <div class="project-info">
+                        <h2 class="project-title">Fine Grained Image Similarity for Apparel</h2>
+                        <p class="project-description">
+                            A deep learning-based system for identifying subtle visual differences between similar apparel items using attention mechanisms, attention erasure, and ResNet50 embeddings for retail inventory optimization.
+                        </p>
+                        <div class="project-tech">
+                            <span>Image Similarity</span>
+                            <span>Attention Mechanisms</span>
+                            <span>Attention Erasure</span>
+                            <span>ResNet50</span>
+                            <span>OpenCV</span>
+                        </div>
+                        <a class="project-github-link" href="https://github.com/rithvika7495/Fine-Grained-Image-Similarity-ForApparel" target="_blank" title="View on GitHub"><i class="fab fa-github"></i></a>
+                        <div class="floating-window-text" id="modal-3">
+                            <section class="project-section">
+                                <p><strong>Type:</strong> Research & Industry Project</p>
+                                <p><strong>Deployment:</strong> AI module for integration into inventory systems</p>
+                                
+                                <h3>Overview</h3>
+                                <p>
+                                    This project proposes a fine-grained image similarity system designed for retail inventory and catalog management.
+                                    It tackles the challenge of distinguishing visually similar apparel items—such as duplicates from different suppliers
+                                    or restocked versions—using a deep learning framework built on ResNet50 and enhanced with attention mechanisms and
+                                    attention erasure techniques. The system is optimized for subtle visual differentiation, making it highly applicable
+                                    for real-world fashion retail use cases.
+                                </p>
+                                
+                                <h3>Problem Statement</h3>
+                                <p>
+                                    In retail environments, particularly large-scale apparel chains, identifying duplicate or near-duplicate products is difficult
+                                    due to minor manufacturing variations. Traditional image matching techniques often fail when textures, patterns, or colors
+                                    appear subtly different. A fine-grained AI-based solution is needed to enhance visual comparison and prevent catalog
+                                    mismanagement or redundant purchasing.
+                                </p>
+                                
+                                <h3>Research Objective</h3>
+                                <p>
+                                    To develop a deep learning-based similarity detection system capable of capturing nuanced visual differences in apparel items,
+                                    using attention-based embeddings and training strategies that improve robustness and generalization.
+                                </p>
+                                
+                                <h3>Key Features</h3>
+                                <ul>
+                                    <li>Uses <strong>ResNet50</strong> as the backbone for feature extraction with frozen base layers</li>
+                                    <li>Incorporates <strong>Channel and Spatial Attention</strong> to focus on clothing-specific visual cues</li>
+                                    <li>Introduces <strong>Attention Erasure</strong> during training to reduce overfitting on dominant regions</li>
+                                    <li>Employs a <strong>custom embedding head</strong> with dropout and normalization for compact feature representation</li>
+                                    <li>Compares embeddings using <strong>Triplet Loss</strong> with semi-hard mining and <strong>Cosine Similarity</strong></li>
+                                </ul>
+                                
+                                <h3>Model Architecture</h3>
+                                <p>
+                                    The system integrates OpenCV-based preprocessing, ResNet50 for hierarchical features, attention and attention-erasure modules
+                                    for visual focus diversification, and a dense embedding head. Similarity is evaluated using a Triplet Loss framework that
+                                    optimizes inter-class separability while preserving intra-class cohesion.
+                                </p>
+                                
+                                <h3>Modules</h3>
+                                <ul>
+                                    <li><strong>Preprocessing:</strong> BGR to RGB conversion, Gaussian blur, normalization</li>
+                                    <li><strong>Feature Extraction:</strong> ResNet50 with attention modules</li>
+                                    <li><strong>Attention Erasure:</strong> Dynamic masking of salient areas to promote secondary feature learning</li>
+                                    <li><strong>Embedding Generation:</strong> Fully connected layers for feature representation</li>
+                                    <li><strong>Similarity Matching:</strong> Cosine similarity and KNN-based scoring</li>
+                                </ul>
+                                
+                                <h3>Technologies Used</h3>
+                                <table>
+                                    <thead>
+                                    <tr>
+                                        <th>Category</th>
+                                        <th>Tools & Frameworks</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>Deep Learning</td>
+                                        <td>TensorFlow, Keras</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Attention Modules</td>
+                                        <td>Custom attention and erasure layers</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Image Processing</td>
+                                        <td>OpenCV</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Loss Function</td>
+                                        <td>Triplet Loss with semi-hard mining</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Visualization</td>
+                                        <td>Matplotlib, Seaborn</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                
+                                <h3>Dataset</h3>
+                                <ul>
+                                    <li><strong>Source:</strong> In-house and scraped e-commerce datasets</li>
+                                    <li><strong>Image Type:</strong> RGB images of upper/lower wear, dresses, etc.</li>
+                                    <li><strong>Labels:</strong> Binary (similar / dissimilar)</li>
+                                    <li><strong>Resolution:</strong> 224×224</li>
+                                    <li><strong>Sample Size:</strong> Balanced pairs across multiple categories</li>
+                                </ul>
+                                
+                                <h3>Evaluation</h3>
+                                <ul>
+                                    <li><strong>Accuracy:</strong> High matching precision across fine-grained apparel categories</li>
+                                    <li><strong>Robustness:</strong> Handles changes in lighting, background clutter, and camera angles</li>
+                                    <li><strong>Generalization:</strong> Attention erasure improves detection of secondary design features</li>
+                                </ul>
+                                
+                                <h3>Key Findings</h3>
+                                <ul>
+                                    <li>Attention-based architectures outperform traditional CNNs in nuanced apparel matching</li>
+                                    <li>Erasure modules help reduce overfitting to primary design features</li>
+                                    <li>The model is lightweight enough for deployment in real-time retail environments</li>
+                                </ul>
+                                
+                                <h3>Conclusion</h3>
+                                <p>
+                                    The project demonstrates a powerful combination of deep learning, attention mechanisms, and contrastive learning to solve the
+                                    real-world challenge of fine-grained apparel similarity. The system is suitable for deployment in inventory management tools , improving product traceability, catalog accuracy, and cost optimization.
+                                </p>
+                                </section>
+                                
+                                
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Card 1 -->
+                <div class="project-card" data-category="capstone_projects all" data-modal-id="modal-1">
+				<div class="project-img">
+					<img src="SAR.jpg" alt="Description of your project image">
+				</div>
+                    <div class="project-info">
+                        <h2 class="project-title">Capstone Project-1: Ship Detection using SAR Imagery for Maritime Vigilance</h2>
+                        <!-- Project_Pan_Text: Short text for card only -->
+                        <p class="project-description">
+                            Built a ResNet50-based model to detect ships in noisy SAR images, optimized with FPN and PSO. Presented at ICDSAAI 2025 for its improved accuracy in cluttered maritime scenes.
+                        </p>
+                        <div class="project-tech">
+                            <span>Tensorflow</span>
+                            <span>OpenCV</span>
+                            <span>CNNs</span>
+                        </div>
+                        <a class="project-github-link" href="https://github.com/rithvika7495/Ship-Detection-using-Satellite-Imagery-for-Maritime-Vigilance" target="_blank" title="View on GitHub"><i class="fab fa-github"></i></a>
+                        <!-- Floating_Window_Text: Hidden, separate, long text for modal only -->
+                        <div class="floating-window-text" id="modal-1">
+                            <div class="project-section">
+                                <p><strong>Conference Publication:</strong> ICDSAAI 2025</p>
+                                <p><strong>DOI:</strong> <a href="https://doi.org/10.1109/ICDSAAI65575.2025.11011861" target="_blank">10.1109/ICDSAAI65575.2025.11011861</a></p>
+                                <p><strong>Authors:</strong> Rithvika T, Monish P, Dr. Poonkodi M</p>
+                                <p><strong>Affiliation:</strong> Vellore Institute of Technology, Chennai</p>
+                              
+                                <h3>Overview</h3>
+                                <p>
+                                  This research project focuses on the development of a deep learning-based solution for accurate ship detection in Synthetic Aperture Radar (SAR) images, addressing challenges such as high noise, cluttered backgrounds, and small target detection. The work was conducted under the guidance of Dr. Poonkodi M and was presented at the International Conference on Data Science, Agents, and Artificial Intelligence (ICDSAAI) 2025.
+                                </p>
+                                <p>
+                                  The proposed framework leverages a custom-optimized architecture built on ResNet50 and Feature Pyramid Networks (FPN), designed to handle the grayscale characteristics and spatial noise inherent in SAR data. Key enhancements include region of interest (ROI) detection, corner-aware filtering, Swish and Tanh activation refinements, and dynamic hyperparameter tuning using Particle Swarm Optimization (PSO). The architecture ensures robust detection even in low-visibility or occluded scenarios.
+                                </p>
+                              
+                                <h3>Key Features</h3>
+                                <ul>
+                                  <li>Multi-scale feature fusion using ResNet50 + FPN</li>
+                                  <li>ROI-based corner detection to isolate potential ship regions</li>
+                                  <li>Activation optimization with Swish and Tanh functions</li>
+                                  <li>Weight mapping and entropy-based filtering to reduce noise impact</li>
+                                  <li>Hyperparameter optimization via Particle Swarm Optimization (PSO)</li>
+                                  <li>Performance comparison with Faster R-CNN, Mask R-CNN, YOLOv2, and FCOS models</li>
+                                </ul>
+                              
+                                <h3>Dataset and Methodology</h3>
+                                <p>
+                                  The dataset consisted of high-resolution (768×768) SAR images labeled with run-length encoded segmentation masks. Preprocessing steps included rotation, zoom, flipping, noise reduction with median filters, and edge enhancement using Sobel filters. The final pipeline incorporates Euclidean distance-based filtering to eliminate invalid regions and focuses on structure-aware classification of ship types and sizes.
+                                </p>
+                              
+                                <h3>Technologies Used</h3>
+                                <ul>
+                                  <li><strong>Deep Learning:</strong> TensorFlow, Keras</li>
+                                  <li><strong>Image Processing:</strong> OpenCV, scikit-image</li>
+                                  <li><strong>Optimization:</strong> Particle Swarm Optimization (PSO)</li>
+                                  <li><strong>Visualization:</strong> Matplotlib, Seaborn</li>
+                                </ul>
+                              
+                                <h3>Outcome</h3>
+                                <p>
+                                  The model demonstrated superior detection accuracy for small and partially occluded ships and outperformed several baseline architectures in both precision and robustness to SAR-specific noise. The framework is suitable for deployment in maritime surveillance systems requiring reliable ship detection under challenging environmental conditions.
+                                </p>
+                              
+                                <h3>Acknowledgment</h3>
+                                <p>
+                                  This project was carried out with the academic support of Dr. Poonkodi M and the infrastructure provided by VIT Chennai. The research is intended for academic and non-commercial use.
+                                </p>
+                              </div>
+                          
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Card 2 -->
+                <div class="project-card" data-category="capstone_projects all" data-modal-id="modal-2">
+				<div class="project-img">
+					<img src="Lungs.png" alt="Description of your project image">
+				</div>
+                    <div class="project-info">
+                        <h2 class="project-title">Capstone Project-2: Lung Disease Classification using Ensemble Transfer Learning and Grad-CAM</h2>
+                        <p class="project-description">
+                            Developed an ensemble-based AI model for lung disease detection from chest X-rays, combining five pre-trained CNNs. Integrated Grad-CAM for explainability and deployed the system via Flask for real-time clinical use.
+                        </p>
+                        <div class="project-tech">
+                            <span>TensorFlow</span>
+                            <span>Grad-CAM</span>
+                            <span>Flask</span>
+                        </div>
+                        <a class="project-github-link" href="https://github.com/rithvika7495/Lung-Disease-Prediction-using-Ensemble-Methods-and-Transfer-Learning" target="_blank" title="View on GitHub"><i class="fab fa-github"></i></a>
+                        <div class="floating-window-text" id="modal-2">
+                            <div class="project-section">
+                                <p><strong>Type:</strong> Research Project</p>
+                                <p><strong>Guide:</strong> Dr. Poonkodi M</p>
+                                <p><strong>Deployment:</strong> Flask-based Web Application</p>
+                              
+                                <h3>Overview</h3>
+                                <p>
+                                  This project presents a deep learning framework for pneumonia and lung disease detection using chest X-rays. The system integrates five pre-trained convolutional neural networks (CNNs) through ensemble learning and utilizes Grad-CAM for explainability. The solution is designed to offer real-time, clinically relevant predictions with visual interpretability, addressing diagnostic challenges in under-resourced healthcare environments.
+                                </p>
+                              
+                                <h3>Problem Statement</h3>
+                                <p>
+                                  Diagnosis from chest X-rays is often hindered by low contrast, overlapping features with other lung diseases, and radiologist fatigue. Traditional AI models either focus on binary classification or lack interpretability. This project aims to create a robust, multi-class, and explainable system that enhances clinical trust and utility.
+                                </p>
+                              
+                                <h3>Research Objective</h3>
+                                <p>
+                                  To build an accurate, interpretable deep learning model for multi-class lung disease classification using ensemble CNNs and Grad-CAM visualizations.
+                                </p>
+                              
+                                <h3>Key Features</h3>
+                                <ul>
+                                  <li>Utilizes five pre-trained models: InceptionResNetV2, EfficientNetB2, DenseNet121, MobileNet, InceptionV3</li>
+                                  <li>Combines outputs using ensemble averaging to improve generalization</li>
+                                  <li>Employs Grad-CAM to generate heatmaps for model decision explainability</li>
+                                  <li>Web interface built with Flask for real-time image upload and prediction</li>
+                                </ul>
+                              
+                                <h3>Model Architecture</h3>
+                                <p>
+                                  The architecture includes preprocessing, parallel CNN inference, ensemble averaging, and Grad-CAM visualization. The interface allows clinicians to upload chest X-rays and receive both predictions and interpretable visual outputs.
+                                </p>
+                              
+                                <h3>Modules</h3>
+                                <ul>
+                                  <li><strong>Preprocessing:</strong> Resize, normalize, and augment input images</li>
+                                  <li><strong>Model Training:</strong> Transfer learning using TensorFlow and Keras</li>
+                                  <li><strong>Prediction:</strong> Output averaging from five models</li>
+                                  <li><strong>Explainability:</strong> Grad-CAM heatmap overlay for feature importance</li>
+                                  <li><strong>Deployment:</strong> Flask app for web-based access</li>
+                                </ul>
+                              
+                                <h3>Technologies Used</h3>
+                                <ul>
+                                  <li><strong>Deep Learning:</strong> TensorFlow, Keras</li>
+                                  <li><strong>Web Development:</strong> Flask</li>
+                                  <li><strong>Explainability:</strong> Grad-CAM</li>
+                                  <li><strong>Image Processing:</strong> OpenCV</li>
+                                </ul>
+                              
+                                <h3>Dataset</h3>
+                                <p>
+                                  NIH ChestX-ray14 (from NIH and Kaggle): A large-scale public dataset consisting of labeled frontal chest X-ray images used for model training and evaluation.
+                                </p>
+                              
+                                <h3>Evaluation</h3>
+                                <p><strong>Individual Model Performance:</strong></p>
+                                <ul>
+                                  <li>InceptionResNetV2: 90.12% Accuracy, 77.80% AUC-ROC</li>
+                                  <li>EfficientNetB2: 89.73% Accuracy, 77.11% AUC-ROC</li>
+                                  <li>MobileNet: 89.65% Accuracy, 76.60% AUC-ROC</li>
+                                  <li>InceptionV3: 89.08% Accuracy, 76.18% AUC-ROC</li>
+                                  <li>DenseNet121: 88.62% Accuracy, 73.77% AUC-ROC</li>
+                                </ul>
+                                <p><strong>Ensemble Results:</strong> 89.69% Accuracy, 79.10% AUC-ROC</p>
+                              
+                                <h3>Key Findings</h3>
+                                <ul>
+                                  <li>The ensemble approach outperformed individual models in accuracy and robustness.</li>
+                                  <li>Grad-CAM visualizations added transparency and improved clinical interpretability.</li>
+                                  <li>InceptionResNetV2 was the best-performing single model, while DenseNet121 showed signs of overfitting.</li>
+                                </ul>
+                              
+                                <h3>Conclusion</h3>
+                                <p>
+                                  The system demonstrates that combining ensemble learning with explainability techniques like Grad-CAM can significantly enhance the accuracy and trustworthiness of AI-assisted medical diagnostics. The final model is deployable as a real-time web application, aiding rapid pneumonia diagnosis and assisting radiologists in low-resource clinical environments.
+                                </p>
+                              </div>
+                              
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="project-card" data-category="summer_internships all" data-modal-id="modal-3">
+                    <div class="project-img">
+                        <img src="pii.png" alt="PII Project Image" style="display: block; width: 100%; height: 230px; object-fit: cover; border-radius: 8px; margin: 0 auto;" />
+                   
+                    </div>
+                    <div class="project-info">
+                        <h2 class="project-title">PII Recognition & LLM-based NLP System</h2>
+                        <p class="project-description">
+                            Developed a high-precision PII recognizer using NER and Regex, and built a RAG-powered NLP system using Hugging Face LLMs to answer domain-specific queries securely.
+                        </p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>NER</span>
+                            <span>Regex</span>
+                            <span>LLMs</span>
+                            <span>Flask</span>
+                        </div>
+                        <a class="project-github-link" href="https://github.com/rithvika7495/PII-Recognition-and-LLM-based-NLP-System" target="_blank" title="View on GitHub"><i class="fab fa-github"></i></a>
+
+                        <div class="floating-window-text" id="modal-7">
+                            <div class="project-section">
+                                <p><strong>Type:</strong> Industry Internship</p>
+                                <p><strong>Company:</strong> IOTA Analytics Pvt Ltd</p>
+                                <p><strong>Deployment:</strong> Flask-based RESTful API with Postman testing</p>
+
+                                <h3>Overview</h3>
+                                <p>
+                                    This internship focused on developing a secure and intelligent NLP system to detect and redact personal identifiable information (PII) from documents, and to enable fast, accurate Q&A using Retrieval-Augmented Generation (RAG) and LLMs.
+                                </p>
+
+                                <h3>Problem Statement</h3>
+                                <p>
+                                    Enterprises require scalable ways to sanitize sensitive data and provide contextual access to proprietary information. Manual compliance efforts are slow and error-prone. This project aimed to automate PII detection and intelligent document querying while preserving privacy.
+                                </p>
+
+                                <h3>Objectives</h3>
+                                <ul>
+                                    <li>Build a PII recognizer with NER and custom Regex for high precision.</li>
+                                    <li>Implement RAG using Hugging Face models for secure Q&A over private data.</li>
+                                    <li>Develop a robust Flask API with full endpoint testing and validation.</li>
+                                </ul>
+
+                                <h3>Key Features</h3>
+                                <ul>
+                                    <li>Achieved <strong>98% precision</strong> in redacting names, emails, and IDs across 10K+ documents.</li>
+                                    <li>Reduced manual compliance workload by <strong>~60%</strong>.</li>
+                                    <li>Integrated RAG pipeline for <strong><2s response time</strong> in domain-specific queries.</li>
+                                    <li>Improved LLM output relevance by <strong>~35%</strong> through semantic embedding and prompt engineering.</li>
+                                </ul>
+
+                                <h3>Technologies Used</h3>
+                                <ul>
+                                    <li><strong>Python</strong></li>
+                                    <li><strong>NER, Regex</strong></li>
+                                    <li><strong>Transformers, Hugging Face</strong></li>
+                                    <li><strong>RAG</strong> (Retrieval-Augmented Generation)</li>
+                                    <li><strong>Flask</strong>, <strong>Postman</strong> for testing</li>
+                                </ul>
+
+                                <h3>Conclusion</h3>
+                                <p>
+                                    The system successfully automated PII recognition and document intelligence for enterprise compliance. Its integration with LLMs enables real-time interaction over private datasets while ensuring data security.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 4 -->
+                <div class="project-card" data-category="summer_internships all" data-modal-id="modal-chakralayaa">
+                    <div class="project-img">
+                        <img src="smis.png" alt="SMIS Project Image" style="display: block; width: 100%; height: 230px; object-fit: cover; border-radius: 8px; margin: 0 auto;" />
+                    </div>
+                
+                    <div class="project-info">
+                        <h2 class="project-title">Supply Market Intelligence System (SMIS)</h2>
+                        <p class="project-description">
+                            Contributed to a real-time business intelligence solution analyzing procurement KPIs and buyer behavior using Python-based analytics for supply chain strategy.
+                        </p>
+                
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>Data Analysis</span>
+                            <span>KPIs</span>
+                            <span>Business Intelligence</span>
+                        </div>
+                
+                        <a class="project-github-link" href="https://github.com/rithvika7495/Supply-Market-Intelligence-System" target="_blank" title="View on GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                
+                        <div class="floating-window-text" id="modal-chakralayaa">
+                            <div class="project-section">
+                                <p><strong>Type:</strong> Academic Internship Project</p>
+                                <p><strong>Company:</strong> Chakralayaa Analytics Pvt Ltd (VIT Incubated Startup)</p>
+                                <p><strong>Focus:</strong> Business Intelligence for Supply Chain & Procurement</p>
+                
+                                <h3>Overview</h3>
+                                <p>
+                                    This internship involved contributing to the development of a Supply Market Intelligence System (SMIS), aimed at enabling data-driven decision-making in procurement and executive strategy through real-time insights.
+                                </p>
+                
+                                <h3>Problem Statement</h3>
+                                <p>
+                                    Procurement teams and executive boards often lack real-time visibility into supplier performance, price trends, and purchasing behavior.
+                                    The SMIS project aimed to bridge this gap through live analytics and intuitive dashboards that bring procurement KPIs to life.
+                                </p>
+                
+                                <h3>Objectives</h3>
+                                <ul>
+                                    <li>Analyze procurement KPIs and purchasing behavior to aid buyer decisions.</li>
+                                    <li>Design insights and visualizations for executive-level dashboards.</li>
+                                    <li>Use Python for data wrangling, trend identification, and forecasting.</li>
+                                </ul>
+                
+                                <h3>Key Features</h3>
+                                <ul>
+                                    <li>Analyzed and visualized <strong>purchasing KPIs</strong> across suppliers and time periods.</li>
+                                    <li>Delivered <strong>real-time buyer trends</strong> to inform procurement strategy.</li>
+                                    <li>Supported executive decision-making via <strong>dashboard-ready insights</strong>.</li>
+                                </ul>
+                
+                                <h3>Technologies Used</h3>
+                                <ul>
+                                    <li><strong>Python</strong></li>
+                                    <li><strong>Pandas, Matplotlib, Seaborn</strong></li>
+                                    <li><strong>Excel/CSV Data Ingestion</strong></li>
+                                    <li><strong>Business Intelligence Concepts</strong></li>
+                                </ul>
+                
+                                <h3>Conclusion</h3>
+                                <p>
+                                    This project helped streamline buyer-side procurement decisions by providing actionable insights from historical purchasing data.
+                                    It laid the foundation for a scalable SMIS platform tailored to supply chain analytics, giving me hands-on experience with real-world business data and BI applications.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project Card 5 -->
+                <div class="project-card" data-category="coursework_projects all" data-modal-id="modal-5">
+				<div class="project-img">
+					<img src="ecg.jpg" alt="Description of your project image">
+				</div>
+                    <div class="project-info">
+                        <h2 class="project-title">Arrhythmia Detection using ECG Signals</h2>
+                        <p class="project-description">
+                            Developed a 1D CNN model to classify cardiac arrhythmias from ECG data using the MIT-BIH dataset, with wavelet-based denoising and class balancing via SMOTE. Achieved accurate classification across heartbeat types, forming a strong foundation for real-time health monitoring systems.
+                        </p>
+                        <div class="project-tech">
+                            <span>1D CNN</span>
+                            <span>ECG Signal Processing</span>
+                            <span>SMOTE</span>
+                        </div>
+                        <a class="project-github-link" href="https://github.com/rithvika7495/Arrythmia-Detection-Using-ECG-Signals" target="_blank" title="View on GitHub"><i class="fab fa-github"></i></a>
+                        <div class="floating-window-text" id="modal-5">
+                            <section id="arrhythmia-project">
+                                <p><strong>Type:</strong> Research Project </p>
+                                <p><strong>Technologies:</strong> 1D CNN, SMOTE, Wavelet Transform, TensorFlow, MIT-BIH Dataset</p>
+                              
+                                <h3>Project Overview</h3>
+                                <p>
+                                  This project aims to detect and classify cardiac arrhythmias from ECG (Electrocardiogram) signals using a 1D 
+                                  Convolutional Neural Network. Trained on annotated heartbeat segments from the MIT-BIH Arrhythmia Database, 
+                                  the model is designed for integration into automated, real-time health monitoring systems.
+                                </p>
+                              
+                                <h3>Objective</h3>
+                                <p>
+                                  To build a deep learning-based classification pipeline that accurately detects multiple types of heartbeats, 
+                                  including abnormal patterns, for early and efficient cardiac diagnostics.
+                                </p>
+                              
+                                <h3>Dataset</h3>
+                                <ul>
+                                  <li><strong>Source:</strong> MIT-BIH Arrhythmia Database</li>
+                                  <li><strong>Sampling Rate:</strong> 360 Hz</li>
+                                  <li><strong>Classes Considered:</strong>
+                                    <ul>
+                                      <li>N: Normal</li>
+                                      <li>L: Left Bundle Branch Block Beat</li>
+                                      <li>R: Right Bundle Branch Block Beat</li>
+                                      <li>A: Atrial Premature Beat</li>
+                                      <li>V: Premature Ventricular Contraction</li>
+                                    </ul>
+                                  </li>
+                                </ul>
+                              
+                                <h3>Workflow Summary</h3>
+                                <h4>1. Data Extraction & Labeling</h4>
+                                <p>ECG signals and annotations are parsed. Heartbeats are segmented and labeled.</p>
+                              
+                                <h4>2. Preprocessing</h4>
+                                <ul>
+                                  <li>Denoising via wavelet transforms</li>
+                                  <li>Normalization and resampling (360 data points)</li>
+                                  <li>Label encoding + one-hot encoding</li>
+                                </ul>
+                              
+                                <h4>3. Class Imbalance Handling</h4>
+                                <p>SMOTE is used to balance underrepresented classes like A and V.</p>
+                                                           
+                                <h4>4. Training & Evaluation</h4>
+                                <p>
+                                  Model compiled with Adam optimizer and categorical crossentropy loss. Accuracy/loss curves and confusion matrix 
+                                  used to evaluate model performance.
+                                </p>
+                              
+                                <h3>Results & Insights</h3>
+                                <ul>
+                                  <li>High classification accuracy across majority and minority classes after SMOTE</li>
+                                  <li>Improved detection of rare arrhythmias</li>
+                                  <li>Visualizations provided transparency and interpretability</li>
+                                  <li>Strong baseline for future integration into real-time systems</li>
+                                </ul>
+                              
+                                <h3>Tools & Libraries</h3>
+                                <p>Python, NumPy, Pandas, Matplotlib, SciPy, PyWavelets, Scikit-learn, Keras, TensorFlow, Imbalanced-learn (SMOTE)</p>
+                              
+                                <h3>Future Scope</h3>
+                                <ul>
+                                  <li>Deploy on IoT or wearable devices for live ECG monitoring</li>
+                                  <li>Extend to multi-lead ECG analysis</li>
+                                  <li>Implement on edge devices for real-time inference</li>
+                                </ul>
+                              </section>
+                              
+                        </div>
+                    </div>
+                </div>
+
+            <!-- Project Card 6 -->
+            <div class="project-card" data-category="coursework_projects all" data-modal-id="modal-6">
+                <div class="project-img">
+                    <img src="RAG.jpg" alt="Description of your project image">
+                </div>
+                    <div class="project-info">
+                        <h2 class="project-title">RAG with AES Encryption</h2>
+                        <p class="project-description">
+                            Developed a secure Retrieval-Augmented Generation (RAG) system using Hugging Face LLMs for document-based question answering. Integrated AES encryption to protect sensitive outputs and ensure privacy in local PDF/DOCX processing.
+                        </p>
+                        <div class="project-tech">
+                            <span>RAG</span>
+                            <span>LLMs</span>
+                            <span>AES Encryption</span>
+                        </div>
+                        <a class="project-github-link" href="https://github.com/rithvika7495/RAG-based-AI-with-AES-Encryption" target="_blank" title="View on GitHub"><i class="fab fa-github"></i></a>
+                        <div class="floating-window-text" id="modal-4">
+                            <section id="arrhythmia-project">
+                                <p><strong>Type:</strong> Research Project</p>
+                                <p><strong>Technologies:</strong> Hugging Face Transformers, LLaMAIndex, Quantized LLMs, AES (Fernet) Encryption</p>
+                                
+                                <h3>Overview</h3>
+                                <p>
+                                    This project introduces a secure Retrieval-Augmented Generation (RAG) framework for privacy-critical applications. 
+                                    It combines local document-based question answering using quantized large language models (LLMs) with AES encryption, 
+                                    enabling encrypted, explainable, and efficient responses on sensitive `.pdf` and `.docx` files.
+                                </p>
+                                
+                                <h3>Objectives</h3>
+                                <ul>
+                                    <li>Enable contextual question-answering over user-uploaded documents</li>
+                                    <li>Ensure end-to-end output security through AES encryption</li>
+                                    <li>Optimize inference efficiency using 4-bit quantization for LLMs</li>
+                                </ul>
+                                
+                                <h3>Key Features</h3>
+                                <ul>
+                                    <li><strong>Document-aware QA:</strong> Accepts `.pdf` and `.docx` files for semantic retrieval</li>
+                                    <li><strong>Quantized Inference:</strong> Efficient 4-bit loading via BitsAndBytes for consumer-grade hardware</li>
+                                    <li><strong>Secure Output:</strong> AES encryption (Fernet) of all model outputs with controlled decryption</li>
+                                    <li><strong>Modular Pipeline:</strong> Easily integrable into web or API-based systems</li>
+                                </ul>
+                                
+                                <h3>System Workflow</h3>
+                                <ol>
+                                    <li>Documents are loaded and embedded using LLaMAIndex</li>
+                                    <li>User enters a natural language query</li>
+                                    <li>Relevant document chunks are retrieved and passed to a quantized transformer model</li>
+                                    <li>Generated responses are encrypted using AES (Fernet)</li>
+                                    <li>Authorized users can decrypt responses locally</li>
+                                </ol>
+                                
+                                <h3>Tech Stack</h3>
+                                <ul>
+                                    <li><strong>LLMs:</strong> Hugging Face Transformers (quantized via BitsAndBytes)</li>
+                                    <li><strong>Retrieval:</strong> LLaMAIndex, VectorStoreIndex</li>
+                                    <li><strong>Document Processing:</strong> docx2txt, pypdf</li>
+                                    <li><strong>Encryption:</strong> Python cryptography module (AES via Fernet)</li>
+                                    <li><strong>Deployment Ready:</strong> Jupyter Notebook / API-compatible</li>
+                                </ul>
+                                
+                                
+                                <h3>License</h3>
+                                <p>This project is released under the Apache License 2.0. For commercial use, please contact the authors.</p>
+                                </section>
+                                
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 7 -->
+                <div class="project-card" data-category="coursework_projects all" data-modal-id="modal-7">
+				<div class="project-img">
+					<img src="Chatbot_NLP.jpg" alt="Description of your project image">
+				</div>
+                    <div class="project-info">
+                        <h2 class="project-title">Chatbot using PyTorch and NLP</h2>
+                        <p class="project-description">
+                            Developed a chatbot using PyTorch and NLP techniques to provide natural language responses to user queries. The chatbot uses a pre-trained model to generate responses and can be trained on new data to improve its performance.
+                        <div class="project-tech">
+                            <span>PyTorch</span>
+                            <span>Seq2Seq Modeling</span>
+                        </div>
+                        <a class="project-github-link" href="https://github.com/rithvika7495/Chatbot-with-Pytorch-and-Natural-Language-Processing" target="_blank" title="View on GitHub"><i class="fab fa-github"></i></a>
+                        <div class="floating-window-text" id="modal-6">
+                            <p><strong>Technologies:</strong> PyTorch, NLTK, seq2seq, Named Entity Recognition, Intent Classification</p>
+                              
+                                <h3>Project Overview</h3>
+                                <p>
+                                  This project involves building an intelligent chatbot capable of understanding and responding to human language.
+                                  The chatbot is powered by <strong>PyTorch</strong> and utilizes core <strong>Natural Language Processing (NLP)</strong> 
+                                  tasks like intent recognition, named entity recognition (NER), and sequence-to-sequence modeling. Designed to handle
+                                  diverse user queries, the system combines rule-based logic with deep learning models to generate accurate, human-like responses.
+                                </p>
+                              
+                                <h3>Objectives</h3>
+                                <ul>
+                                  <li>Build an end-to-end NLP chatbot that can learn from conversations.</li>
+                                  <li>Implement intent detection and response generation using deep learning models.</li>
+                                  <li>Deploy the chatbot for real-time interaction across different platforms.</li>
+                                </ul>
+                              
+                                <h3>Dataset</h3>
+                                <p>
+                                  Conversational datasets, including question-answer pairs or synthetic dialogues, are used for training. The model is also capable of being fine-tuned on real-time interaction data gathered during deployment.
+                                </p>
+                              
+                                <h3>Model Development</h3>
+                                <ul>
+                                  <li>Seq2Seq model with encoder-decoder architecture for contextual response generation.</li>
+                                  <li>Rule-based fallback systems for predefined queries.</li>
+                                  <li>Trained using backpropagation with gradient descent to improve accuracy and fluency.</li>
+                                </ul>
+                              
+                                <h3>Preprocessing</h3>
+                                <p>
+                                  Data is cleaned and tokenized using tools like <strong>NLTK</strong> or <strong>spaCy</strong>. Steps include:
+                                  lowercasing, punctuation removal, stopword filtering, and word tokenization.
+                                </p>
+                              
+                                <h3>Training & Evaluation</h3>
+                                <ul>
+                                  <li>Trained on labeled conversational data.</li>
+                                  <li>Metrics used: Accuracy, BLEU score (response quality), F1 score (NER), Intent Accuracy.</li>
+                                  <li>Training loss and validation metrics tracked to avoid overfitting.</li>
+                                </ul>
+                              
+                                <h3>Deployment</h3>
+                                <p>
+                                  The chatbot can be deployed in multiple environments such as web apps or messaging platforms.
+                                  A simple Flask-based API or command-line interface allows real-time user interaction.
+                                </p>
+                              
+                                <h3>Dependencies</h3>
+                                <ul>
+                                  <li>Python 3.7+</li>
+                                  <li>PyTorch</li>
+                                  <li>NLTK / spaCy</li>
+                                  <li>Flask (for deployment)</li>
+                                </ul>
+                              
+                                <h3>Future Enhancements</h3>
+                                <ul>
+                                  <li>Integrate transformer-based models for better context handling.</li>
+                                  <li>Add voice support using Speech-to-Text APIs.</li>
+                                  <li>Enable multilingual support with translation layers.</li>
+                                </ul>
+                          </section>
+                          
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- Publications tab, hidden by default, shown only when Publications is active -->
+                <div class="publications-list" id="publications-list" style="display:none;">
+                    <ul>
+                        <li>
+                            R. Tiruveedhula and M. P, "Ship Detection using SAR Images for Maritime Vigilance," 2025 International Conference on Data Science, Agents & Artificial Intelligence (ICDSAAI), Chennai, India, 2025, pp. 1-6, doi: 10.1109/ICDSAAI65575.2025.11011861. keywords: {Surveillance;Image edge detection;Feature extraction;Real-time systems;Radar polarimetry;Security;Marine vehicles;Particle swarm optimization;Synthetic aperture radar;Synthetic aperture radar (SAR);Edge Detection;Feature Extraction Algorithm;Euclidian Distance}
+                        </li>
+                        <li>
+                            <i>Link to Paper:</i> https://ieeexplore.ieee.org/document/11011861
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Modal (Floating Window) -->
+    <div id="modal-backdrop" class="modal-backdrop" style="display:none;">
+        <div class="modal-window" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <div class="modal-header">
+                <span id="modal-title"></span>
+                <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
+            </div>
+            <div class="modal-body" id="modal-body"></div>
+            <div class="modal-footer">
+                <button class="cta-button" id="modal-close-btn">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <hr class="section-divider">
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" class="form-control" required></textarea>
+                    </div>
+                    <button type="submit" class="cta-button">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-bar">
+                <div class="footer-social">
+                    <a href="https://github.com/rithvika7495" title="GitHub" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+                    <a href="https://in.linkedin.com/in/rithvikat" title="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+                    <!-- X icon SVG, same size as others -->
+                    <a href="https://x.com/rithvikat7495" class="footer-x" title="X" target="_blank" rel="noopener">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="footer-contact">
+                    <span class="footer-phone">
+                        <i class="fas fa-phone"></i>
+                        <span>+91-9538232897</span>
+                    </span>
+                    <span class="footer-email">
+                        <i class="fas fa-envelope"></i>
+                        <span>rithvika.tiruvee@gmail.com</span>
+                    </span>
+                </div>
+            </div>
+            <p>Designed & Built by Rithvika Tiruveedhula</p>
+            <p>&copy; 2025 All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                window.scrollTo({
+                    top: target.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+
+        // Project Tabs/Filtering and Publications tab
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+        const publicationsList = document.getElementById('publications-list');
+        const projectsGrid = document.getElementById('projects-grid');
+
+        function showTab(tab) {
+            if (tab === 'publications') {
+                publicationsList.style.display = 'block';
+                projectCards.forEach(card => card.style.display = 'none');
+            } else {
+                publicationsList.style.display = 'none';
+                projectCards.forEach(card => {
+                    if (tab === 'all' || card.dataset.category.includes(tab)) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }
+        }
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                showTab(btn.dataset.filter);
+            });
+        });
+        // Default to show 'All'
+        showTab('all');
+
+        // Light/Dark Mode Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const htmlEl = document.documentElement;
+
+        function setTheme(theme) {
+            htmlEl.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            if(theme === 'dark') {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+        }
+        (function() {
+            let savedTheme = localStorage.getItem('theme');
+            if(!savedTheme) {
+                savedTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+            setTheme(savedTheme);
+        })();
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = htmlEl.getAttribute('data-theme');
+            setTheme(currentTheme === 'light' ? 'dark' : 'light');
+        });
+
+        // Project Modal (Floating Window)
+        const modalBackdrop = document.getElementById('modal-backdrop');
+        const modalTitle = document.getElementById('modal-title');
+        const modalBody = document.getElementById('modal-body');
+        const modalClose = document.getElementById('modal-close');
+        const modalCloseBtn = document.getElementById('modal-close-btn');
+
+        function openModal(title, floatingWindowTextHTML) {
+            modalTitle.textContent = title;
+            modalBody.innerHTML = floatingWindowTextHTML;
+            modalBackdrop.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        function closeModal() {
+            modalBackdrop.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+        modalClose.addEventListener('click', closeModal);
+        modalCloseBtn.addEventListener('click', closeModal);
+        modalBackdrop.addEventListener('click', function(e){
+            if(e.target === modalBackdrop) closeModal();
+        });
+        document.addEventListener('keydown', function(e){
+            if(e.key === "Escape" && modalBackdrop.style.display === 'flex') closeModal();
+        });
+
+        projectCards.forEach(card => {
+            card.addEventListener('click', function(e){
+                // Prevent modal open if clicking the github link
+                if (e.target.closest('.project-github-link')) return;
+                const title = card.querySelector('.project-title').textContent;
+                // Get the floating window text from .floating-window-text (HTML, not textContent)
+                const modalId = card.getAttribute('data-modal-id');
+                const floatingWindowDiv = card.querySelector('.floating-window-text');
+                const floatingWindowTextHTML = floatingWindowDiv ? floatingWindowDiv.innerHTML : '';
+                openModal(title, floatingWindowTextHTML);
+            });
+        });
+
+        // Form Submission
+        const contactForm = document.querySelector('form');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Message sent successfully!');
+            contactForm.reset();
+        });
+    </script>
+</body>
+</html>
