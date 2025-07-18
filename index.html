@@ -1260,9 +1260,42 @@
         </div>
     </section>
 
-    <!-- Publications(Prev "Contact" Section) -->
+    <!-- Project Modal (Floating Window) -->
+    <div id="modal-backdrop" class="modal-backdrop" style="display:none;">
+        <div class="modal-window" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <div class="modal-header">
+                <span id="modal-title"></span>
+                <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
+            </div>
+            <div class="modal-body" id="modal-body"></div>
+            <div class="modal-footer">
+                <button class="cta-button" id="modal-close-btn">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
     <section id="contact" class="section contact-section">
         <div class="container">
+
+            <h2 class="section-title">Publications</h2>
+            <hr class="section-divider">
+			
+            <div class="about-content about-wide">
+                <div class="about-text">
+					<ol>
+						<li>
+							Rithvika T, Monish P, “Ship Detection using SAR Images for Maritime Vigilance”, IEEE International Conference on Data Science, Agents & Artificial Intelligence (ICDSAAI), Chennai, India, 2025. ( Prof. Poonkodi M. contributed as a co-author)
+						</li>
+						<br>
+						<li>
+							Rithvika T, Monish P, Poonkodi M, “Lung Disease Classification using Ensemble Transfer Learning and Grad-CAM for Visualization”, submitted to IEEE International Conference on Intelligent Signal Processing and Effective Communication Technologies, INSPECT-2025   (Under Review).
+						</li>
+					</ol>
+				
+                </div>
+            </div>
+		<!-- 
             <h2 class="section-title">Get In Touch</h2>
             <hr class="section-divider">
             <div class="contact-form">
@@ -1282,7 +1315,9 @@
                     <button type="submit" class="cta-button">Send Message</button>
                 </form>
             </div>
-        </div>
+			-->
+			
+        </div> <!-- <div class="container"> --->
     </section>
 
     <!-- Footer -->
