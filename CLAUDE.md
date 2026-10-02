@@ -14,55 +14,65 @@ There is no build step, package manager, linter or test suite. The whole site is
 python3 -m http.server 8000   # then open http://localhost:8000
 ```
 
-Opening `index.html` directly with `file://` also works. External dependencies are Geist and Geist Mono from Google Fonts, and Font Awesome from cdnjs.
+External dependencies:
+- Geist and Geist Mono from Google Fonts
+- Font Awesome from cdnjs
+- GSAP 3.12.5 and ScrollTrigger from cdnjs
+- Lenis 1.1.13 (smooth scroll) from unpkg
+
+When testing scroll motion, keep the browser tab visible. Hidden tabs pause `requestAnimationFrame`, which freezes Lenis and GSAP.
 
 ## Architecture of index.html
 
 ### Design
-Dark only. The look blends two inspiration sites, sawad.framer.website and redoyanulhaque.me. All colours, fonts and the radius live as CSS custom properties on `:root`:
+Dark only. The look blends two inspiration sites, sawad.framer.website and redoyanulhaque.me. All colours, fonts and sizes live as CSS custom properties on `:root`:
 
 | Token | Value / use |
 |---|---|
 | `--bg` | `#0b080c` |
-| `--surface`, `--surface-2` | card backgrounds |
 | `--accent` | lavender `#c2a4ff` |
-| `--muted`, `--dim` | secondary text |
 | `--sans` | Geist |
 | `--mono` | Geist Mono |
-| `--radius` | shared corner radius |
+| `--photo-w` | width of the hero photo |
 
 Reuse these tokens rather than hard-coding colours.
 
-### Layout
-`.page` is a two-column grid:
-- a sticky `<aside class="profile">` card holding the photo, contact details and CV button
-- `<main>` holding the sections `#home`, `#about`, `#workexp`, `#projects`, `#publications` and `#contact`
+### Scroll-motion concept (Redoyan-style)
+`#photo-stage` holds your portrait. It is the one element that stays fixed while the page moves around it. It only becomes `position: fixed` under `.has-motion` at widths of 1025px and above.
 
-Below 1024px the grid collapses to one column. Below 720px the pill nav shows icons only.
+The script adds `.has-motion` to `<html>` only when GSAP and ScrollTrigger have loaded and the visitor hasn't asked for reduced motion. Without it, the page falls back to a plain static layout. Any CSS that depends on the motion must be scoped under `.has-motion`.
 
-### Headings
-Section headings use `<h2 class="big-title">First <span>Second</span></h2>`. The `span` renders as a muted second line.
+Desktop timelines live in `gsap.matchMedia('(min-width: 1025px)')`:
+
+| Trigger | What moves |
+|---|---|
+| `#home` | the photo glides left (`x: -24vw`) while the hero text fades out |
+| `#workexp` | the photo lifts and fades |
+| `#projects` | the section is pinned and `.work-track` scrolls sideways; the pin length is the track's overflow width |
+
+On every screen size:
+- `.career` timelines scrub `.career-progress` (`scaleY`) and move `.career-dot` (`top`).
+- `.big-title .ln` lines, `[data-reveal]` elements and `[data-count]` stats animate in as they enter the screen.
+
+### Gotchas
+- **Lenis class names:** Lenis rewrites `<html>`'s class list and strips anything matching `lenis*`, so never put "lenis" in your own class names. The script adds `smooth-js` when Lenis is active. Without that class, CSS `scroll-behavior: smooth` stays on and fights Lenis.
+- **Jumping to a pinned section:** the pinned `#projects` element is `position: fixed` while active. Anchor jumps and the post-filter reset therefore target its `.pin-spacer` parent.
+- **Height-changing content:** call `ScrollTrigger.refresh()` after anything that changes layout height. `showTab()` already does this.
+
+### Hero layout
+`.landing` is a three-column grid. Because the fixed photo leaves grid flow, `.landing-left`, `.photo-stage` and `.landing-right` are pinned to explicit columns 1, 2 and 3.
 
 ### Project cards and modal
-Each `.project-card` has two parts:
+Each `.project-card` inside `.work-track#projects-grid` has two parts:
 - **Visible summary:** `.project-arrow`, `.project-img`, `.project-cat`, `.project-title`, `.project-description`, `.project-tech` and `.project-github-link`
 - **Hidden write-up:** a `.floating-window-text` div holding the full text
 
-When a card is clicked, the script copies that div's `innerHTML` and the card title into the shared `#modal-backdrop` dialog. Clicks on `.project-github-link` are excluded. The modal's CSS (`.modal-body h3`, `ul`, `table` and so on) styles whatever the write-up contains.
+When a card is clicked, the script copies that div's `innerHTML` into the shared `#modal-backdrop` and pauses Lenis while the modal is open.
 
-To add a project, copy an existing card. The `data-modal-id` attribute is not used by the JS.
+To add a project, copy an existing card. Card numbers come from a CSS counter.
 
 ### Filtering
 `.filter-btn[data-filter]` buttons toggle each card's `hidden` attribute based on the space-separated tokens in its `data-category`. Every card must also include `all`. The valid tokens are `work_at_tcs`, `capstone_projects`, `summer_internships` and `coursework_projects`.
 
-### Script features
-- a loader overlay, removed on `load` with a 1.5s fallback
-- a typewriter rotating the `roles` array
-- a scroll-spy that highlights the active nav link
-- reveal-on-scroll, where JS adds `.reveal`/`.in` so the content stays visible without JS
-- a `#bg-canvas` particle-network background
-
-Motion respects `prefers-reduced-motion`.
-
 ### Stats
-The hero stats (internships, projects, papers) are hard-coded. Update them when experience, project cards or publications change.
+The About stats (internships, projects, papers) are hard-coded in `data-count`. Update them when content changes.
