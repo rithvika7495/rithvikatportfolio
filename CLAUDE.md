@@ -38,7 +38,7 @@ Dark only. The look blends two inspiration sites, sawad.framer.website and redoy
 Reuse these tokens rather than hard-coding colours.
 
 ### Scroll-motion concept (Redoyan-style)
-`#photo-stage` holds your portrait. It is the one element that stays fixed while the page moves around it. It only becomes `position: fixed` under `.has-motion` at widths of 1025px and above.
+`#photo-stage` holds the portrait. It is the one element that stays fixed while the page moves around it. It only becomes `position: fixed` under `.has-motion` at widths of 1025px and above.
 
 The script adds `.has-motion` to `<html>` only when GSAP and ScrollTrigger have loaded and the visitor hasn't asked for reduced motion. Without it, the page falls back to a plain static layout. Any CSS that depends on the motion must be scoped under `.has-motion`.
 
